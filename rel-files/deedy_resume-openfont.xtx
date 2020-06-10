@@ -1,0 +1,242 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.2 (16/9/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[]{deedy-resume-openfont}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+ 
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\namesection{Jonathan}{Loewen}{
+\urlstyle{same}
+3rd Year Mechanical Engineering Student from Langley, BC \\ 
+\href{mailto:jonathan.loewen@outlook.com}{jonathan.loewen@outlook.com} | \href{(778) 580-7784}{(778) 580-7784}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.3\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links}
+\begin{tabular}{@{\hspace{0em}}l r}
+\href{mailto:jonathan.loewen@outlook.com}{jonathan.loewen@outlook.com} & \faEnvelope \\
+\href{(778) 580-7784}{(778) 580-7784} & \faPhone \\
+\href{https:/www.linkedin.com/in/loewenjonathan}{linkedin.com/in/loewenjonathan} & \faLinkedin \\
+\href{https://github.com/jobiniah}{github.com/jobiniah} & \faGithub \\
+\end{tabular}
+
+ 
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+
+\subsection{Software}
+AutoCad \textbullet{} Solidworks \textbullet{} Python \textbullet{} MS Office \textbullet{} Matlab/Simulink \textbullet{} R \textbullet{} Linux
+
+\subsection{Hardware}
+Arduino \textbullet{} 3D printers \textbullet{} Lathe \textbullet{} Welding \textbullet{} Oscilloscope \textbullet{} Prototyping
+
+\subsection{General}
+Class 5 BC Drivers License \textbullet{} Leadership \textbullet{} Interpersonal Skills \textbullet{} Detail Oriented \textbullet{} Time Management
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{UBC Okanagan}
+\descript{BASc. Mechanical Engineering}
+\location{09/2018 – Present | Kelowna, BC}
+\location{ GPA: 74\% }
+\sectionsep
+
+\subsection{KPU}
+\descript{First Year Engineering}
+\location{09/2017 – 04/2018 | Surrey, BC}
+\location{GPA: 3.15}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+\subsection{Extracurricular}
+UBCO Aerospace Club \\
+UBCO CFD Lab \\
+\sectionsep
+
+\subsection{Undergraduate}
+Fluid Mechanics 2 \\
+Materials Science 2 \\
+Project Management \\
+Technical Writing \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{.05\textwidth}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.65\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Work Experience}
+\runsubsection{Lantic Inc.}
+\descript{| Mechanical Engineering Coop Student }
+\location{01/2020 – Present | Vancouver, BC}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Managed and planned contractor work on site. 
+\item Produced AutoCAD sketches for project proposals.
+\item Learned about various piping, and other design standards.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{UBCO CFD Lab}
+\descript{| Undergraduate Research Assistant }
+\location{09/2019 – 12/2019 | Kelowna, BC}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Learned advanced CFD topics for analyzing fluid flow in small (capillary) tubes 
+\item Analyzed simulation and looked for anomalies to present in a weekly meeting
+\item Automated workflow in python to more efficiently use time
+\end{tightemize}
+\sectionsep
+
+\runsubsection{McAsphalt Inc.}
+\descript{| General Labourer }
+\location{04/2018 – 08/2018 | Langley, BC}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Co-ordinated with power engineers to utilize and maintain heavy machinery (pumps).
+\item Calmed customers in tight situations like product shortages, and tight ferry schedules.
+\item Demonstrated excellent communication skills when training four employees in a short amount of time.
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Projects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Technical Projects}
+
+\runsubsection{Self Landing Model Rocket}
+\descript{| UBCO Aerospace Club}
+\location{01/2019 – 12/2019 | UBC Okanagan}
+\begin{tightemize}
+\item Manage 3 sub teams with 8+ students combined.
+\item Interface between executives and sub teams to show progress, set goals, and explain needs.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Data Collecting Shower Timer}
+\descript{| Sustainability Class Project}
+\location{01/2019 – 04/2019 | UBC Okanagan}
+\begin{tightemize}
+\item Lead group of 6 students in designing, and prototyping a data collecting shower timer
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Popsicle Bridge}
+\descript{| Mechanics Class Project}
+\location{01/2018 – 03/2018 | KPU}
+\begin{tightemize}
+\item Designed, tested, and manufactured a popsicle bridge using joint analysis in Maple
+\item Modelled using 2D and 3D CAD software for truss testing.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Line Following Robot}
+\descript{| Microcontrollers Class Project}
+\location{01/2018 – 03/2018 | KPU}
+\begin{tightemize}
+\item Lead development of software for an adaptive line following robot.
+\item Learned how to use git for version control
+\item Demonstrated ability to prepare for, and adapt to, unknown circumstances 
+\end{tightemize}
+\sectionsep
+
+\end{minipage} 
+\end{document}  \documentclass[]{article}
