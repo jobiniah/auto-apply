@@ -33,8 +33,12 @@ tex = tex.replace("**@bodypar2**", bodypar2)
 with open("/mnt/d/Files/Documents/git/auto-apply/rel-files/dummy.xtx","w") as f:
     f.write(tex)
 
-os.system("cd /mnt/d/Files/Documents/git/auto-apply/rel-files && pwd && xelatex dummy.xtx")
-#subprocess.call("pwd")
-#subprocess.call("xelatex dummy.xtx")"""
+startpoint = "/mnt/d/Files/Documents/git/auto-apply/rel-files"
+endpoint = "/mnt/d/Program Files/OneDrive/Documents/University Spring 2020/coop/"
+
+os.system("cd " + startpoint + " && xelatex dummy.xtx")
+
+os.system("cd '" + endpoint + "' && mkdir "+company)
+os.system("cd "+ startpoint +" && cp dummy.pdf '"+ endpoint + company + "'")
 
 print('done')
