@@ -30,15 +30,18 @@ tex = tex.replace("**@bodypar2**", bodypar2)
 
 
 
-with open("/mnt/d/Files/Documents/git/auto-apply/rel-files/dummy.xtx","w") as f:
+with open("/mnt/d/Files/Documents/git/auto-apply/rel-files/jonathan_cover_letter.xtx","w") as f:
     f.write(tex)
 
 startpoint = "/mnt/d/Files/Documents/git/auto-apply/rel-files"
 endpoint = "/mnt/d/Program Files/OneDrive/Documents/University Spring 2020/coop/"
 
-os.system("cd " + startpoint + " && xelatex dummy.xtx")
+os.system("cd " + startpoint + " && xelatex jonathan_cover_letter.xtx")
 
 os.system("cd '" + endpoint + "' && mkdir "+company)
-os.system("cd "+ startpoint +" && cp dummy.pdf '"+ endpoint + company + "'")
+os.system("cd "+ startpoint +" && cp jonathan_cover_letter.pdf '"+ endpoint + company + "'")
+
+os.system("cd rel-files && rm jonathan_cover_letter.pdf jonathan_cover_letter.aux jonathan_cover_letter.xtx jonathan_cover_letter.log jonathan_cover_letter.out")
+
 
 print('done')
