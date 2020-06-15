@@ -1,47 +1,56 @@
 import subprocess
 import os
+import pandas as pd
 
-company = "NASA"
-job = "Leader"
-job_id = "987654"
-student = ""
-company_adj = "local"
-project_adj1 = "innovative"
-project_adj2 = "sustainable"
-interest1 = "hands on work"
-interest2 = "new technologies"
-bodypar1 = "As the project manager of the UBCO Aerospace clubs self landing model rocket project it was important to communicate clearly with my team members, and the club executives.  I interfaced between my 3 sub teams who dealt with the technical work on the project and the executives who dealt with the legal and logistical issues.  Every meeting, I tried to ensure that all 3 sub teams have a goal to work toward, and when they leave I would check to make sure they have a goal to do light research on for next week.  I then reported the progress to my executives, and we re-evaluated project goals as needed. This experience has improved my project planning methodology."
-bodypar2 = "I have had the opportunity to be a research assistant at the UBCO CFD Lab.  My job was to analyze slug flow through a capillary tube and suggest points of interest for further analysis.  I met up with the research team on a weekly basis to share my findings and receive new ideas for points of interest.  I have successfully automated my workflow to more effectively analyze the data.  This has helped me develop my critical thinking skills."
+df = pd.read_csv("job-data.csv")
+df = df.fillna("")
 
-with open("rel-files/jonathan_coverletter.xtx","r") as f:
-    tex = f.read()
+df.head()
 
-tex = tex.replace("**@company**", company)
-tex = tex.replace("**@job**", job)
-tex = tex.replace("**@job_id**", job_id)
-tex = tex.replace("**@student**", student)
-tex = tex.replace("**@company_adj**", company_adj)
-tex = tex.replace("**@project_adj1**", project_adj1)
-tex = tex.replace("**@project_adj2**", project_adj2)
-tex = tex.replace("**@interest1**", interest1)
-tex = tex.replace("**@interest2**", interest2)
-tex = tex.replace("**@bodypar1**", bodypar1)
-tex = tex.replace("**@bodypar2**", bodypar2)
+for index, row in df.iterrows():
+    company = row['company'].replace(u'\xa0', u' ')
+    job = row['job'].replace(u'\xa0', u' ')
+    job_id = str(row['job_id'])
+    student = str(row['student'])
+    company_adj = row['company_adj'].replace(u'\xa0', u' ')
+    project_adj1 = row['project_adj1'].replace(u'\xa0', u' ')
+    project_adj2 = row['project_adj2'].replace(u'\xa0', u' ')
+    interest1 = row['interest1'].replace(u'\xa0', u' ')
+    interest2 = row['interest2'].replace(u'\xa0', u' ')
+    bodypar1 = row['bodypar1'].replace(u'\xa0', u' ')
+    bodypar2 = row['bodypar2'].replace(u'\xa0', u' ')
 
+    with open("rel-files/jonathan_coverletter.xtx","r") as f:
+        tex = f.read()
 
-
-with open("/mnt/d/Files/Documents/git/auto-apply/rel-files/jonathan_cover_letter.xtx","w") as f:
-    f.write(tex)
-
-startpoint = "/mnt/d/Files/Documents/git/auto-apply/rel-files"
-endpoint = "/mnt/d/Program Files/OneDrive/Documents/University Spring 2020/coop/"
-
-os.system("cd " + startpoint + " && xelatex jonathan_cover_letter.xtx")
-
-os.system("cd '" + endpoint + "' && mkdir "+company)
-os.system("cd "+ startpoint +" && cp jonathan_cover_letter.pdf '"+ endpoint + company + "'")
-
-os.system("cd rel-files && rm jonathan_cover_letter.pdf jonathan_cover_letter.aux jonathan_cover_letter.xtx jonathan_cover_letter.log jonathan_cover_letter.out")
+    tex = tex.replace("**@company**", company)
+    tex = tex.replace("**@job**", job)
+    tex = tex.replace("**@job_id**", job_id)
+    tex = tex.replace("**@student**", student)
+    tex = tex.replace("**@company_adj**", company_adj)
+    tex = tex.replace("**@project_adj1**", project_adj1)
+    tex = tex.replace("**@project_adj2**", project_adj2)
+    tex = tex.replace("**@interest1**", interest1)
+    tex = tex.replace("**@interest2**", interest2)
+    tex = tex.replace("**@bodypar1**", bodypar1)
+    tex = tex.replace("**@bodypar2**", bodypar2)
 
 
-print('done')
+
+    with open("/mnt/d/Files/Documents/git/auto-apply/rel-files/jonathan_cover_letter.xtx","w") as f:
+        f.write(tex)
+    
+    input("Press enter to continue")
+
+    startpoint = "/mnt/d/Files/Documents/git/auto-apply/rel-files"
+    endpoint = "/mnt/d/Program Files/OneDrive/Documents/University Spring 2020/coop/"
+
+    os.system("cd " + startpoint + " && xelatex jonathan_cover_letter.xtx")
+
+    os.system("cd '" + endpoint + "' && mkdir '" + company +"-" + job_id + "'")
+    os.system("cd "+ startpoint +" && cp jonathan_cover_letter.pdf '"+ endpoint + company +"-" + job_id + "'")
+
+    os.system("cd rel-files && rm jonathan_cover_letter.pdf jonathan_cover_letter.aux jonathan_cover_letter.xtx jonathan_cover_letter.log jonathan_cover_letter.out")
+
+
+    print('done')
